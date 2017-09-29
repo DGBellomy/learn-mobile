@@ -1,4 +1,4 @@
-package com.example.gbellomy.pointsapp;
+package com.gbellomy.pointsapp;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
