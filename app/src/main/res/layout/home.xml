@@ -15,18 +15,22 @@
         />
 
     <Button
+        android:id="@+id/button_spendPoints"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onSpendPointsClicked"
         android:text="Spend Points"
         />
 
     <Button
+        android:id="@+id/button_addPoints"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Add Points"
         />
 
     <Button
+        android:id="@+id/button_removePoints"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Remove Points"

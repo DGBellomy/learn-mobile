@@ -13,5 +13,15 @@ public class SpendPointsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.submit_list);
+
+        if (findViewById(R.id.frag_list_container) != null && savedInstanceState == null) {
+            SpendListFragment spendListFragment = new SpendListFragment();
+            spendListFragment.setArguments(getIntent().getExtras());
+
+            getFragmentManager().beginTransaction()
+                    .add(R.id.frag_list_container, spendListFragment)
+                    .commit();
+        }
     }
 }
