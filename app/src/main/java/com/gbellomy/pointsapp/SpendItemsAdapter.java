@@ -3,6 +3,7 @@ package com.gbellomy.pointsapp;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,6 +60,7 @@ public class SpendItemsAdapter extends ArrayAdapter<SpendItem> {
 
         SpendItem spendItem = this.getItem(position);
         viewHolder.display.setText(String.format(Locale.US, "%s - %d pts", spendItem.getTitle(), spendItem.getCost()));
+        parent.setBackgroundColor(ContextCompat.getColor(context, R.color.basic));
 
         return convertView;
     }

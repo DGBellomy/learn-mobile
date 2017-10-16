@@ -16,6 +16,8 @@
         </activity>
 
         <activity android:name=".SpendPointsActivity"></activity>
+        <activity android:name=".AddPointsActivity"></activity>
+        <activity android:name=".RemovePointsActivity"></activity>
 
     </application>
 

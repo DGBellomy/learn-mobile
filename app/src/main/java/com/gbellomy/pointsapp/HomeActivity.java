@@ -21,4 +21,12 @@ public class HomeActivity extends AppCompatActivity {
     public void onSpendPointsClicked(View view) {
         startActivity(new Intent(this, SpendPointsActivity.class));
     }
+
+    public void onAddPointsClicked(View view) {
+        startActivity(new Intent(this, AddPointsActivity.class));
+    }
+
+    public void onRemovePointsClicked(View view) {
+        startActivity(new Intent(this, RemovePointsActivity.class));
+    }
 }

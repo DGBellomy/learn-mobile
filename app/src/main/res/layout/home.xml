@@ -26,6 +26,7 @@
         android:id="@+id/button_addPoints"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onAddPointsClicked"
         android:text="Add Points"
         />
 
@@ -33,6 +34,7 @@
         android:id="@+id/button_removePoints"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="onRemovePointsClicked"
         android:text="Remove Points"
         />
 
