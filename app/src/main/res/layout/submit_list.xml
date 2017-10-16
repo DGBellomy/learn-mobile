@@ -12,6 +12,7 @@
 
     <Button
         android:text="Submit"
+        android:onClick="onSubmitClicked"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
