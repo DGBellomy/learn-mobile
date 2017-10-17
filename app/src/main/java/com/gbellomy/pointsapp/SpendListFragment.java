@@ -17,7 +17,7 @@ import java.util.Map;
 public class SpendListFragment extends ListFragment {
     private static final String SPEND_ITEMS_ARG = "spend_items";
     private ArrayList<SpendItem> spendItems = new ArrayList<>();
-    private PointsData pointsData = PointsData.getInstance();
+    private PointsData pointsData = PointsData.getInstance(getActivity());
     private SpendItemsAdapter adapter;
 
     @Override

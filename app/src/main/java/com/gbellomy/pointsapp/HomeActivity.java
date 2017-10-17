@@ -19,7 +19,8 @@ public class HomeActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
-        pointsData = PointsData.getInstance();
+        pointsData = PointsData.getInstance(this);
+        pointsData.load();
         totalPointsDisplay = (TextView) findViewById(R.id.total_points_display);
         setTotalPointsDisplay();
     }
@@ -43,5 +44,11 @@ public class HomeActivity extends AppCompatActivity {
     private void setTotalPointsDisplay()
     {
         totalPointsDisplay.setText("Total Points: " + pointsData.getPoints());
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        pointsData.save();
     }
 }

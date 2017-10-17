@@ -1,7 +1,7 @@
 package com.gbellomy.pointsapp;
 
 import android.content.Context;
-import android.util.JsonWriter;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -18,6 +18,7 @@ import java.util.Map;
 public class PointsData {
     private static PointsData instance = null;
     private static final String FILENAME = "points.data";
+    private static final String POINTS_ARG = "Points";
 
     private int points = 0;
     private Map<String, Integer> rewards = new HashMap<>();
@@ -41,14 +42,14 @@ public class PointsData {
 
     public void save() {
         try {
-            FileOutputStream fout = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
-
             HashMap<String, Integer> data = new HashMap<>();
-            data.put("Points", points);
+            data.put(POINTS_ARG, points);
             JSONObject json = new JSONObject(data);
 
+            FileOutputStream fout = context.openFileOutput(FILENAME, Context.MODE_PRIVATE);
             fout.write(json.toString().getBytes());
             fout.close();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -57,8 +58,18 @@ public class PointsData {
     public void load() {
         try {
             FileInputStream fin = context.openFileInput(FILENAME);
-            byte[] data;
-            fin.read(data);
+            StringBuffer fileContent = new StringBuffer("");
+
+            byte[] buffer = new byte[1024];
+            int n;
+
+            while ((n = fin.read(buffer)) != -1)
+                fileContent.append(new String(buffer, 0, n));
+
+            JSONObject jsonObject = new JSONObject(fileContent.toString());
+
+            points = (int) jsonObject.get(POINTS_ARG);
+
         } catch (Exception e) {
             e.printStackTrace();
         }

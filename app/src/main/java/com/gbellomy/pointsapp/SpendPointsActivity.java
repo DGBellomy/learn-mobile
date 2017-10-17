@@ -29,7 +29,8 @@ public class SpendPointsActivity extends AppCompatActivity {
     }
 
     public void onSubmitClicked(View view) {
-        PointsData.getInstance().removePoints(usedPoints);
+        PointsData.getInstance(this).removePoints(usedPoints);
+        PointsData.getInstance(this).save();
         startActivity(new Intent(this, HomeActivity.class));
     }
 }
